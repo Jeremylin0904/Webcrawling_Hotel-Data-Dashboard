@@ -9,7 +9,6 @@ This project is a web application that fetches hotel data from Booking.com using
 - [File Descriptions](#file-descriptions)
 - [Dependencies](#dependencies)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Installation
 
@@ -60,7 +59,3 @@ This project is a web application that fetches hotel data from Booking.com using
 ## Contributing
 
 If you would like to contribute to this project, please open an issue or submit a pull request.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
