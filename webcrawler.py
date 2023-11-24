@@ -28,7 +28,7 @@ def webcrawler(location, checkin, checkout):
     chrome_options.add_argument("--headless")
 
     # 创建WebDriver时传递chrome_options
-    driver = webdriver.Chrome(options=chrome_options)
+    driver = webdriver.Chrome()
     
 
     # 要访问的URL
