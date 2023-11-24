@@ -5,7 +5,6 @@ This project is a web application that fetches hotel data from Booking.com using
 ## Contents
 
 - [Demo](#demo)
-- [Installation](#installation)
 - [Usage](#usage)
 - [File Descriptions](#file-descriptions)
 - [Dependencies](#dependencies)
@@ -14,20 +13,6 @@ This project is a web application that fetches hotel data from Booking.com using
 ## Demo
 
 ![Demo](demo.png)
-
-## Installation
-
-1. Clone the repository:
-
-    ```bash
-    git clone https://github.com/your-username/hotel-data-dashboard.git
-    ```
-
-2. Install the required dependencies:
-
-    ```bash
-    pip install -r requirements.txt
-    ```
 
 ## Usage
 
