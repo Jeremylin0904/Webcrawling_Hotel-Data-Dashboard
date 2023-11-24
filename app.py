@@ -32,21 +32,17 @@ app.layout = html.Div([
      Input('date-input', 'end_date')]
 )
 def update_scatter_plot(n_clicks, location, start_date, end_date):
-    # Only trigger the callback when the button is clicked
+
     if n_clicks > 0:
-        # Call your web crawler function with the provided inputs
-        # Replace the following line with your actual web crawler function call
+
         data = webcrawler(location, start_date, end_date)
 
-        # Create a scatter plot using Plotly Express or Plotly Graph Objects
-        # Replace the following line with your actual scatter plot creation code
         fig = px.scatter(data, x='price', y='distance', color='ratings',
                         title=f'Hotel Price and Distance Scatter Plot in {location} from {start_date} to {end_date}',
                         labels={'price': 'Price', 'distance': 'Distance', 'ratings': 'Ratings'})
 
         return fig
     else:
-        # Return an empty figure when the button is not clicked
         return {}
 
 if __name__ == '__main__':
