@@ -25,33 +25,17 @@ def webcrawler(location, checkin, checkout):
     hrating = []
     
     chrome_options = Options()
-
-    # 启用无头模式
     chrome_options.add_argument("--headless")
 
-    # 创建WebDriver时传递chrome_options
     driver = webdriver.Chrome()
-    
-
-    # 要访问的URL
     url = f'https://www.booking.com/searchresults.en-us.html?ss={location}&checkin={checkin}&checkout={checkout}'
-
-    # 使用Selenium打开网页
     driver.get(url)
 
-
     accept = '//*[@id="onetrust-accept-btn-handler"]'
-
     accept_button = WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.XPATH, accept)))
-
-    # 點擊下一頁
     accept_button.click()
     page_source = driver.page_source
-    #updated_url = driver.current_url
-
     
-
-    # 解析HTML
     soup = BeautifulSoup(page_source, 'html.parser')
 
     pages = soup.find_all('button', class_='a83ed08757 a2028338ea')
@@ -63,13 +47,7 @@ def webcrawler(location, checkin, checkout):
         number = instance.text
 
     maxpagenum = np.max(pagenum)
-    '''
-    print(number)
-    print(f'Number of Pages: {maxpagenum}')
-    print(f'At Page: 1')
-    '''
 
-    # 找到所有具有特定类的元素
     properties = soup.find_all('div', {'class': 'c82435a4b8 a178069f51 a6ae3c2b40 a18aeea94d d794b7a0f7 f53e278e95 c6710787a4', 'data-testid':'property-card'})
     for k, property in enumerate(properties):
         names = property.find('div', {'class':'f6431b446c a15b38c233', 'data-testid':'title'})
@@ -128,50 +106,16 @@ def webcrawler(location, checkin, checkout):
                     comment = 'Rating under 7'
             hcomments.append(comment)
             
-
     i = 1
     while i < maxpagenum:
         i = i+1
-        #print(f'At Page: {i}')
-        '''
-        chrome_options = Options()
-
-        # 启用无头模式
-        chrome_options.add_argument("--headless")
-
-        # 创建WebDriver时传递chrome_options
-        driver = webdriver.Chrome()
-
-        url = updated_url
-
-        # 使用Selenium打开网页
-        driver.get(url)
-
-
-        accept = '//*[@id="onetrust-accept-btn-handler"]'
-
-        accept_button = WebDriverWait(driver, 0.1).until(EC.presence_of_element_located((By.XPATH, accept)))
-
-        # 點擊下一頁
-        accept_button.click()
-        '''
-
-
         nextapgexpath ='//*[@id="bodyconstraint-inner"]/div[2]/div/div[2]/div[3]/div[2]/div[2]/div[4]/div[2]/nav/nav/div/div[3]/button'
-
         nextapge_button = WebDriverWait(driver, 0.1).until(EC.presence_of_element_located((By.XPATH, nextapgexpath)))
-
-        # 點擊下一頁
         nextapge_button.click()
         time.sleep(2)
-        
-        #updated_url = driver.current_url
         page_source = driver.page_source
-
-        
-
-        # 解析HTML
         soup = BeautifulSoup(page_source, 'html.parser')
+        
         properties = soup.find_all('div', {'class': 'c82435a4b8 a178069f51 a6ae3c2b40 a18aeea94d d794b7a0f7 f53e278e95 c6710787a4', 'data-testid':'property-card'})
         for k, property in enumerate(properties):
             names = property.find('div', {'class':'f6431b446c a15b38c233', 'data-testid':'title'})
@@ -237,15 +181,13 @@ def webcrawler(location, checkin, checkout):
     return data
 
 if __name__ == "__main__":
-    # 检查命令行参数是否正确
+
     if len(sys.argv) != 4:
         print("Usage: python webcrawler.py <location> <checkin_date> <checkout_date>")
         sys.exit(1)
 
-    # 从命令行参数获取位置、入住日期和退房日期
     location = sys.argv[1]
     checkin_date = sys.argv[2]
     checkout_date = sys.argv[3]
 
-    # 调用 webcrawler 函数
     webcrawler(location, checkin_date, checkout_date)
