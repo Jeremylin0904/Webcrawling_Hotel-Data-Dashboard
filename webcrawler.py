@@ -12,6 +12,8 @@ import numpy as np
 import pandas as pd
 from selenium.webdriver.chrome.options import Options
 import time
+import sys
+
 
 
 def webcrawler(location, checkin, checkout):
@@ -233,3 +235,17 @@ def webcrawler(location, checkin, checkout):
     data = pd.DataFrame({'name':hnames,'location':hlocations,'price':hprice,'ratings':hrating,'distance':hdist,'comments':hcomments})
     data.to_csv(f'Hotel_{location}_{checkin}_{checkout}.csv')
     return data
+
+if __name__ == "__main__":
+    # 检查命令行参数是否正确
+    if len(sys.argv) != 4:
+        print("Usage: python webcrawler.py <location> <checkin_date> <checkout_date>")
+        sys.exit(1)
+
+    # 从命令行参数获取位置、入住日期和退房日期
+    location = sys.argv[1]
+    checkin_date = sys.argv[2]
+    checkout_date = sys.argv[3]
+
+    # 调用 webcrawler 函数
+    webcrawler(location, checkin_date, checkout_date)
