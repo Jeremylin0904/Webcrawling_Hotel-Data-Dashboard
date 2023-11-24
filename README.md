@@ -19,10 +19,10 @@ This project is a web application that fetches hotel data from Booking.com using
 1. Run the web crawler to fetch hotel data:
 
     ```bash
-    python webcrawler.py
+    python webcrawler.py location check_in_date check_out_date
     ```
 
-   The data will be saved in a CSV file.
+   The data will be saved in a CSV file named location_check_in_date_check_out_date.csv.
 
 2. Launch the dashboard application:
 
