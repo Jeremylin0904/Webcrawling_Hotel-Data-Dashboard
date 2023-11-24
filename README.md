@@ -4,6 +4,7 @@ This project is a web application that fetches hotel data from Booking.com using
 
 ## Contents
 
+- [Demo](#demo)
 - [Installation](#installation)
 - [Usage](#usage)
 - [File Descriptions](#file-descriptions)
