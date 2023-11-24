@@ -10,6 +10,10 @@ This project is a web application that fetches hotel data from Booking.com using
 - [Dependencies](#dependencies)
 - [Contributing](#contributing)
 
+## Demo
+
+![Demo](demo.png)
+
 ## Installation
 
 1. Clone the repository:
