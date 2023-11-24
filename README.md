@@ -5,14 +5,19 @@ This project is a web application that fetches hotel data from Booking.com using
 ## Contents
 
 - [Demo](#demo)
+- [Problem Statement](#problem-statement)
 - [Usage](#usage)
 - [File Descriptions](#file-descriptions)
 - [Dependencies](#dependencies)
-- [Contributing](#contributing)
+
 
 ## Demo
 
 ![Demo](demo.png)
+
+## Problem Statement
+
+For detailed information about the problem statement and requirements, please refer to the [programm_HW.pdf](programm_HW.pdf) file provided with this project. This document outlines the specific tasks and goals of the project.
 
 ## Usage
 
