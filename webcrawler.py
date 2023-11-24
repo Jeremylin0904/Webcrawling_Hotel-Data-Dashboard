@@ -231,4 +231,5 @@ def webcrawler(location, checkin, checkout):
 
     driver.quit()
     data = pd.DataFrame({'name':hnames,'location':hlocations,'price':hprice,'ratings':hrating,'distance':hdist,'comments':hcomments})
+    data.to_csv(f'Hotel_{location}_{checkin}_{checkout}.csv')
     return data
